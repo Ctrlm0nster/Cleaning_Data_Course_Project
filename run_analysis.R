@@ -7,6 +7,9 @@ library(dplyr)
 # Downloading the dataset and unzipping it in the current working directory.
 
 if (!file.exists("UCI HAR Dataset.zip")) {
+    if (!dir.exists("Data")) {
+        dir.create("Data")
+    }
     fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
     download.file(fileURL, destfile = "Data/UCI HAR Dataset.zip", method = "curl")
     unzip("Data/UCI HAR Dataset.zip", exdir = "Data")
